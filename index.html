@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+
+    <title>67328 Facebook WebApp</title>
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="main.js"></script>
+
+  </head>
+  <body>
+      <div id="fb-root"></div>
+      
+      <script src="fb.js"></script>
+
+    <div class="container">
+
+      <h1>67-328 Facebook Web Application</h1>
+      <h2>By Alex Mark</h2>
+      <br>
+      <h3>Log in here:</h3>
+      <p><fb:login-button autologoutlink="true" perms="email,user_birthday,status_update,publish_stream,user_about_me"></fb:login-button></p>
+      <br>
+      <form name="form" id="inputform">
+        <h3>Get Facebook company page:</h3>
+        <input type='text' name='input' id='inputfield' value='Enter company name'>
+        <br>
+        <input type="button" onclick="getUserInput()" value="Submit">
+      </form>
+    </div>
+    <div id="info" class="container">
+      <h1>Facebook Info</h1>
+      <div id="wrapper"></div>
+    </div>
+  </body>
+</html>
