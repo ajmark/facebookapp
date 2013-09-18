@@ -26,7 +26,6 @@ function getUserInput(){
 };
     
 function getPage(userinput){
-    try{
       $.getJSON("https://graph.facebook.com/"+userinput+"/?fields=picture.height(160).width(160),description,about,mission,general_info,username,company_overview,link", function(data){
             about = data["about"];
             description = data["descripton"];
@@ -58,8 +57,4 @@ function getPage(userinput){
             $(selector).parent().hide().show();
             jqueryActions();
       });
-    }
-    catch(e) {
-        console.log("error");
-    }
 }; 
