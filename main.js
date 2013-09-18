@@ -12,6 +12,12 @@ function jqueryActions(){
             $(this).css("color","#3b5998");
         });
     });
+    
+    $(".infobox").mouseenter(function(){
+        $(this).css({"background-color":"#FFFFF2", "border-radius":"10px"}).mouseleave(function(){
+            $(this).css({"background-color":"white","border-radius":"0px"});
+        });
+    });
 };    
 
 function getUserInput(){
@@ -20,6 +26,7 @@ function getUserInput(){
 };
     
 function getPage(userinput){
+    try{
       $.getJSON("https://graph.facebook.com/"+userinput+"/?fields=picture.height(160).width(160),description,about,mission,general_info,username,company_overview,link", function(data){
             about = data["about"];
             description = data["descripton"];
@@ -30,7 +37,7 @@ function getPage(userinput){
             username = data["username"];  
             
             if (about == undefined){
-              $("#wrapper").prepend("<h3>This is not a Facebook company page</h3><br>") 
+              $("#wrapper").prepend("<h3>This is not a Facebook company page</h3><br>"); 
             }
             else {
               $("#wrapper").prepend("<div id='"+username+"'class='infobox'><img src='"+picture+"' alt='profile'><br><h3>"+about+"</h3>");
@@ -51,4 +58,8 @@ function getPage(userinput){
             $(selector).parent().hide().show();
             jqueryActions();
       });
+    }
+    catch(e) {
+        console.log("error");
+    }
 }; 

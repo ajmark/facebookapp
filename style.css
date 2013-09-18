@@ -84,3 +84,8 @@
       img {
         padding-bottom: 1em;
       }
+      span{
+        font-size:0.8em;
+        color:#A6A6A6; 
+        font-weight:500;
+      }
