@@ -31,6 +31,7 @@ function jqueryActions(){
     });
 };    
 
+//Stores the value from the input field and calls the getPage() method 
 function getUserInput(){
     var userinput = document.getElementById("inputfield").value;
     getPage(userinput);
@@ -59,11 +60,13 @@ function getPage(userinput){
             picture = data["picture"].data.url;
             username = data["username"];  
             
+            //Grabs info from json, if there is no information for a section, does not add it to the page 
             if (about != undefined){
+                //Puts the div at the top of the list 
               $("#wrapper").prepend("<div id='"+username+"'class='infobox'><img src='"+picture+"' alt='profile'><br><h3>"+about+"</h3>");
               jqueryActions();
             }
-          
+            
             var selector = "#"+username; 
             if (description != undefined){
                 $(selector).append("<p>"+description+"</p>");
